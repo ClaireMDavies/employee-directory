@@ -3,9 +3,9 @@ import "./style.css";
 
 function Navbar() {
     return ( 
-    <nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <span class="navbar-text">
+    <nav className="navbar navbar-dark bg-dark">
+  <div className="container-fluid">
+    <span className="navbar-text">
       Employee Directory
     </span>
   </div>

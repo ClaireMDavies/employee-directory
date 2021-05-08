@@ -1,9 +1,10 @@
 .navbar {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .navbar-text {
     font-size: x-large;
+    color: white;
     padding-left: 45%;
 }
