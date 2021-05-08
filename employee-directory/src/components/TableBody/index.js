@@ -1,7 +1,11 @@
 import React from "react";
 import "./style.css";
 
+
+
+
 function TableBody() {
+
     return (
         <tbody>
             <tr>
@@ -16,3 +20,5 @@ function TableBody() {
 }
 
 export default TableBody;
+
+
