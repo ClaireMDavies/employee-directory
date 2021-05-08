@@ -30,17 +30,15 @@ function EmployeeTable(props) {
     return (
 
         <table className="table table-striped">
-
-
             <thead>
                 <tr>
                     <th ></th>
-                    <th > First Name</th>
-                    <th > Last Name</th>
-                    <th >Email Address</th>
-                    <th >Date of Birth</th>
-                    <th >Office Phone</th>
-                    <th >Mobile Phone</th>
+                    <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('firstName')}>First Name</button></th>
+                    <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('lastName')}>Last Name</button></th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Office Phone</th>
+                    <th scope="col">Mobile Phone</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +46,7 @@ function EmployeeTable(props) {
                 {sortedEmployees.map(employee => (
                     <Employee key={employee.id} employee={employee} />
                 ))}
-               
+                
             </tbody>
         </table>
     );
