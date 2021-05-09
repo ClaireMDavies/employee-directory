@@ -1,4 +1,4 @@
-# Employee Directory
+# Employee Directory  ![https://img.shields.io/github/license/ClaireMDavies/employee-directory?style=for-the-badge](https://img.shields.io/github/license/ClaireMDavies/employee-directory?style=for-the-badge)
 
 ## Description
 
@@ -57,5 +57,7 @@ This app is the sole work of [Claire Davies](https://github.com/ClaireMDavies)
 
 ## Future Versions
 
+There was a great deal of scope with this project to add extra features.  Given more time I would look into the sort functionality being reversable, so sorting from z-a or from youngest to oldest. 
 
+Other things I would like to work on is the UI, and as I have ideas as to what could be done to make it look more stylish. 
   
