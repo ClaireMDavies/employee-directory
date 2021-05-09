@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import EmployeeTable from "./components/EmployeeTable";
-import './App.css';
 import axios from "axios";
 
 function App() {
