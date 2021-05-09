@@ -13,19 +13,36 @@ function EmployeeTable(props) {
     let sortedEmployees = [...employees];
 
     if (sortField !== null) {
-        sortedEmployees.sort((a, b) => {
-            if (a[sortField] < b[sortField]) {
+        if (sortField === "dateOfBirth")
+        {
+            dateSort(sortedEmployees, sortField);
+        }
+        else
+        {
+            stringSort(sortedEmployees, sortField);
+        }
+    }
+
+    if (filterField.length > 0 && filterValue.length > 0) {
+        sortedEmployees = sortedEmployees.filter(employee => employee[filterField].toLowerCase().includes(filterValue.toLowerCase()));
+    }
+
+    function stringSort(list, sortProperty) {
+        list.sort((a, b) => {
+            if (a[sortProperty] < b[sortProperty]) {
                 return -1;
             }
-            if (a[sortField] > b[sortField]) {
+            if (a[sortProperty] > b[sortProperty]) {
                 return 1;
             }
             return 0;
         });
     }
 
-    if (filterField.length > 0 && filterValue.length > 0) {
-        sortedEmployees = sortedEmployees.filter(employee => employee[filterField].toLowerCase().includes(filterValue.toLowerCase()));
+    function dateSort(list, sortProperty) {
+        list.sort((a, b) => {
+            return new Date(a[sortProperty]) - new Date(b[sortProperty]);
+        });
     }
 
     function updateFilterField(event) {
@@ -42,7 +59,6 @@ function EmployeeTable(props) {
         setFilterValue(filterValue);
         event.preventDefault();
     }
-
 
     return (
         <div>
@@ -68,8 +84,8 @@ function EmployeeTable(props) {
                         <th ></th>
                         <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('firstName')}>First Name</button></th>
                         <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('lastName')}>Last Name</button></th>
-                        <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('emailAddress')}>Email Address</button></th>
-                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Email Address</th>
+                        <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('dateOfBirth')}>Date of Birth</button></th>
                         <th scope="col">Office Phone</th>
                         <th scope="col">Mobile Phone</th>
                     </tr>

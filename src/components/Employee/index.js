@@ -1,5 +1,5 @@
 import React from "react";
-
+import moment from "moment";
 
 const Employee = (props) => {
 
@@ -9,7 +9,7 @@ const Employee = (props) => {
             <td>{props.employee.firstName}</td>
             <td>{props.employee.lastName}</td>
             <td>{props.employee.emailAddress}</td>
-            <td>{props.employee.dateOfBirth}</td>
+            <td>{moment(props.employee.dateOfBirth).format("DD-MMM-YYYY")}</td>
             <td>{props.employee.officePhone}</td>
             <td>{props.employee.mobilePhone}</td>
         </tr>
@@ -17,6 +17,3 @@ const Employee = (props) => {
 }
 
 export default Employee;
-
-
-

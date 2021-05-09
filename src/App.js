@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import EmployeeTable from "./components/EmployeeTable";
 import './App.css';
 import axios from "axios";
-import moment from "moment";
 
 function App() {
     const [employees, setEmployeeData] = React.useState([]);
@@ -21,7 +20,7 @@ function App() {
           lastName: employee.name.last,
           photoUrl: employee.picture.thumbnail,
           emailAddress: employee.email,
-          dateOfBirth: moment(employee.dob.date).format("DD-MMM-YYYY"),
+          dateOfBirth: employee.dob.date,
           officePhone: employee.phone,
           mobilePhone: employee.cell
         }
@@ -32,15 +31,12 @@ function App() {
   }, []);
   
     return (
-
         <div className="App">
             <Navbar />
             <div className="content">
                 <EmployeeTable data = {employees}/>
             </div>
         </div>
-
-
     );
 }
 
