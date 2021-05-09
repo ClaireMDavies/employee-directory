@@ -2,13 +2,10 @@ import React from "react";
 import "./style.css";
 import Employee from "../Employee";
 
-
-
-
 function EmployeeTable(props) {
 
     const [sortField, setSortField] = React.useState(null);
-    const [filterField, setFilterField] = React.useState('');
+    const [filterField, setFilterField] = React.useState('firstName');
     const [filterValue, setFilterValue] = React.useState('');
 
     let employees = props.data;
@@ -28,10 +25,8 @@ function EmployeeTable(props) {
     }
 
     if (filterField.length > 0 && filterValue.length > 0) {
-        sortedEmployees = sortedEmployees.filter(employee => employee[filterField].includes(filterValue));
+        sortedEmployees = sortedEmployees.filter(employee => employee[filterField].toLowerCase().includes(filterValue.toLowerCase()));
     }
-
-
 
     function updateFilterField(event) {
 
@@ -50,23 +45,22 @@ function EmployeeTable(props) {
 
 
     return (
-
         <div>
+            <div className="searchBackground"> Search by
 
-            <form>
-                <select className="form-select" id="filterProperties" onChange={updateFilterField}>
-                    <option value="firstName">First Name</option>
-                    <option value="lastName">Last Name</option>
-                    <option value="emailAddress">Email Address</option>
-                    <option value="dateOfBirth">Date of Birth</option>
-                    <option value="officePhone">Office Phone</option>
-                    <option value="mobilePhone">Mobile Phone</option>
-                </select>
-                <input type="text" onChange={updateFilterValue}></input>
-            </form>
+                <form> 
+                    <select className="form-select" id="filterProperties" onChange={updateFilterField}>
+                        <option className="option" value="firstName">First Name</option>
+                        <option className="option" value="lastName">Last Name</option>
+                        <option className="option" value="emailAddress">Email Address</option>
+                        <option className="option" value="dateOfBirth">Date of Birth</option>
+                        <option className="option" value="officePhone">Office Phone</option>
+                        <option className="option" value="mobilePhone">Mobile Phone</option>
+                    </select>
+                    <input type="text" id="textField" onChange={updateFilterValue}></input>
+                </form>
 
-
-
+            </div>
 
             <table className="table table-striped">
                 <thead>
@@ -74,7 +68,7 @@ function EmployeeTable(props) {
                         <th ></th>
                         <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('firstName')}>First Name</button></th>
                         <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('lastName')}>Last Name</button></th>
-                        <th scope="col">Email Address</th>
+                        <th scope="col"><button type="button" className="btn btn-outline-secondary" onClick={() => setSortField('emailAddress')}>Email Address</button></th>
                         <th scope="col">Date of Birth</th>
                         <th scope="col">Office Phone</th>
                         <th scope="col">Mobile Phone</th>
